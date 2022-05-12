@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from 'axios';
+import Home from "./components/Home";
 
 function App() {
   return (
     <BrowserRouter>
 
       <Routes>
-
+        <Route path="/" element={<Home/>} />
       </Routes>
 
     </BrowserRouter>
