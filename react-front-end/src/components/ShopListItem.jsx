@@ -1,12 +1,15 @@
-export default function ShopListItem(){
+export default function ShopListItem(props) {
+
+const { title, description, cost } = props;
+
   return(
     <>
     <div>
-      <h1>Title</h1>
+      <h1>{title}</h1>
       <h3>Image TBD</h3>
       <ul>
-        <li>Description</li>
-        <li>Cost</li>
+        <li>{description}</li>
+        <li>{cost}</li>
       </ul>
     </div>
     </>
