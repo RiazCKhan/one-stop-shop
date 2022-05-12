@@ -15,8 +15,6 @@ export default function ShopList() {
       })
   }, [])
 
-
-
   const shopItem = shopData.map((item) => {
     console.log('hello', item)
     return (
@@ -31,7 +29,7 @@ export default function ShopList() {
 
   return (
     <>
-
+      {shopItem}
     </>
   )
 }
