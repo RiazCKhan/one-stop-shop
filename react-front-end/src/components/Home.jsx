@@ -1,14 +1,12 @@
 import axios from 'axios';
+import ShopList from './ShopList';
 
 export default function Home() {
 
-
-  axios.get('/api/items')
-    .then((response, request) => {
-      console.log(response.data)
-    })
-
   return (
-    <>Hello</>
+    <>
+      Hello
+    <ShopList />
+    </>
   )
 }
