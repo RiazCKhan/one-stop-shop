@@ -1,5 +1,14 @@
+import axios from 'axios';
+
 export default function Home() {
-  return(
+
+
+  axios.get('/api/items')
+    .then((response, request) => {
+      console.log(response.data)
+    })
+
+  return (
     <>Hello</>
   )
 }
