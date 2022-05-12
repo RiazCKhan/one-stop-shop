@@ -21,7 +21,10 @@ export default function ShopList() {
     console.log('hello', item)
     return (
       <ShopListItem
-      key={item.id}
+        key={item.id}
+        title={item.title}
+        description={item.description}
+        cost={item.cost}
       />
     )
   })
