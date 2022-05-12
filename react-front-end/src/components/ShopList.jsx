@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
+import ShopListItem from "./ShopListItem"
 
 export default function ShopList() {
 
@@ -16,7 +17,14 @@ export default function ShopList() {
 
 
 
-  // const shopItem = 
+  const shopItem = shopData.map((item) => {
+    console.log('hello', item)
+    return (
+      <ShopListItem
+      key={item.id}
+      />
+    )
+  })
 
   return (
     <>
