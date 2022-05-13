@@ -4,7 +4,7 @@ import ShopListItem from "./ShopListItem"
 
 import "./ShopList.css"
 
-export default function ShopList(props) {
+export default function ShopList() {
 
   const [shopData, setShopData] = useState([])
   const [newCost, setNewCost] = useState("")
