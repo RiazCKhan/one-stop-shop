@@ -2,7 +2,7 @@ import "./ShopList.css"
 
 export default function ShopListItem(props) {
 
-  const { title, description, cost } = props;
+  const { title, description, cost, onEdit } = props;
 
   return (
     <article className="item-card">
@@ -19,7 +19,7 @@ export default function ShopListItem(props) {
       <article>
         <div className="edit-card">
         {cost}
-        <button>Update Cost</button>
+        <button onClick={onEdit}>Update Cost</button>
         </div>
       </article>
 
