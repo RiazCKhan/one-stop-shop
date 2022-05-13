@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect } from "react"
 import axios from "axios"
 import ShopListItem from "./ShopListItem"
 
@@ -32,7 +32,11 @@ export default function ShopList() {
       .then(() => {
         console.log("Sending Data to Backend, Item ID:", id)
         setPage(true)
-      }).catch((error) => {
+      })
+      .then(() => {
+        setPage(false)
+      })
+      .catch((error) => {
         console.log(error)
       })
   }
