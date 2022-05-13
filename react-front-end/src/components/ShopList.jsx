@@ -7,6 +7,7 @@ import "./ShopList.css"
 export default function ShopList(props) {
 
   const [shopData, setShopData] = useState([])
+  const [newCost, setNewCost] = useState()
 
   useEffect(() => {
     axios.get('/api/items')
@@ -17,8 +18,25 @@ export default function ShopList(props) {
       })
   }, [])
 
+
+const handleSubmit = (event) => {
+  event.preventDefault();
+}
+
   const onEdit = (id) => {
-    console.log(id)
+
+    const item = {
+      id: id,
+      cost: newCost
+    }
+
+    console.log(item)
+
+    // axios.put('/api/editItems/', item)
+    // .then(() => {
+      // console.log("Sending data to Backend", id)
+    // })
+
   }
 
   const shopItem = shopData.map((item) => {
@@ -30,6 +48,8 @@ export default function ShopList(props) {
         description={item.description}
         cost={item.cost}
         onEdit={onEdit}
+        setNewCost={setNewCost}
+        handleSubmit={handleSubmit}
       />
     )
   })
