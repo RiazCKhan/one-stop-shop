@@ -20,6 +20,12 @@ module.exports = db => {
     SET cost = $1
     WHERE items.id = $2
     `, [cost, id])
+      .then(() => {
+        res.status(204).json({})
+        console.log("Cost Updated")
+      }).catch((error) => {
+        console.log('Cost Update Error', error)
+      })
   })
 
 
