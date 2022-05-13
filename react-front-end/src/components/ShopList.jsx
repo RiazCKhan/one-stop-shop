@@ -8,6 +8,7 @@ export default function ShopList() {
 
   const [shopData, setShopData] = useState([])
   const [newCost, setNewCost] = useState("")
+  const [page, setPage] = useState(false)
 
   useEffect(() => {
     axios.get('/api/items')
@@ -16,7 +17,7 @@ export default function ShopList() {
       }).catch((error) => {
         console.log('Error', error)
       })
-  }, [])
+  }, [page])
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -30,6 +31,7 @@ export default function ShopList() {
     axios.put('/api/editItems', item)
       .then(() => {
         console.log("Sending Data to Backend, Item ID:", id)
+        setPage(true)
       }).catch((error) => {
         console.log(error)
       })
