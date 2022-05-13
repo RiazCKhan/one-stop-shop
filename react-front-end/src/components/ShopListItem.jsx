@@ -12,7 +12,6 @@ export default function ShopListItem(props) {
       <article>
         <div className="edit-card">
         {description}
-        <button>Edit Description</button>
         </div>
       </article>
 
