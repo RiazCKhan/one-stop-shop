@@ -7,5 +7,18 @@ module.exports = db => {
       res.json(items);
     });
   })
+
+  // Update Item Cost
+  router.put("/editItems/", (req, res) => {
+    console.log('Receive Data from Frontend', req.body)
+
+    // db.query(`
+    // UPDATE items
+    // SET cost = $1
+    // WHERE items.id = $2
+    // `, [])
+  })
+
+
   return router;
 };
