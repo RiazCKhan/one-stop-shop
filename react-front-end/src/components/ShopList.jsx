@@ -17,6 +17,10 @@ export default function ShopList() {
       })
   }, [])
 
+  const onEdit = () => {
+    console.log('yeup')
+  }
+
   const shopItem = shopData.map((item) => {
     return (
       <ShopListItem
@@ -24,6 +28,7 @@ export default function ShopList() {
         title={item.title}
         description={item.description}
         cost={item.cost}
+        onEdit={onEdit}
       />
     )
   })
