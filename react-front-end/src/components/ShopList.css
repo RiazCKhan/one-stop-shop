@@ -19,3 +19,18 @@
 .item-card:hover {
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
 }
+
+.edit-card {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0.25rem 0.5rem 0.25rem;
+}
+
+.edit-input {
+  display: flex;
+  width: auto;
+}
+
+button {
+  margin-left: 0.25rem;
+}
