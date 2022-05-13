@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import axios from "axios"
 import ShopListItem from "./ShopListItem"
 
@@ -7,7 +7,7 @@ import "./ShopList.css"
 export default function ShopList(props) {
 
   const [shopData, setShopData] = useState([])
-  const [newCost, setNewCost] = useState()
+  const [newCost, setNewCost] = useState("")
 
   useEffect(() => {
     axios.get('/api/items')
@@ -27,10 +27,9 @@ export default function ShopList(props) {
       id: id,
       cost: newCost
     }
-
     axios.put('/api/editItems', item)
       .then(() => {
-        console.log("Sending data to Backend", id)
+        console.log("Sending Data to Backend, Item ID:", id)
       }).catch((error) => {
         console.log(error)
       })
