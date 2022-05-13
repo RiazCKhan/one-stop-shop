@@ -2,6 +2,8 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import ShopListItem from "./ShopListItem"
 
+import "./ShopList.css"
+
 export default function ShopList() {
 
   const [shopData, setShopData] = useState([])
@@ -28,8 +30,8 @@ export default function ShopList() {
   })
 
   return (
-    <>
+    <section className="shop-items-container">
       {shopItem}
-    </>
+    </section>
   )
 }
