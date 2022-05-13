@@ -18,25 +18,22 @@ export default function ShopList(props) {
       })
   }, [])
 
-
-const handleSubmit = (event) => {
-  event.preventDefault();
-}
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  }
 
   const onEdit = (id) => {
-
     const item = {
       id: id,
       cost: newCost
     }
 
-    console.log(item)
-
-    // axios.put('/api/editItems/', item)
-    // .then(() => {
-      // console.log("Sending data to Backend", id)
-    // })
-
+    axios.put('/api/editItems', item)
+      .then(() => {
+        console.log("Sending data to Backend", id)
+      }).catch((error) => {
+        console.log(error)
+      })
   }
 
   const shopItem = shopData.map((item) => {
