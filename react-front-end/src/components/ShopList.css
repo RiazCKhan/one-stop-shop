@@ -25,3 +25,12 @@
   justify-content: space-between;
   margin: 0.5rem 0.25rem 0.5rem 0.25rem;
 }
+
+.edit-input {
+  display: flex;
+  width: auto;
+}
+
+button {
+  margin-left: 0.25rem;
+}

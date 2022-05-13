@@ -4,7 +4,7 @@ import ShopListItem from "./ShopListItem"
 
 import "./ShopList.css"
 
-export default function ShopList() {
+export default function ShopList(props) {
 
   const [shopData, setShopData] = useState([])
 
@@ -17,14 +17,15 @@ export default function ShopList() {
       })
   }, [])
 
-  const onEdit = () => {
-    console.log('yeup')
+  const onEdit = (id) => {
+    console.log(id)
   }
 
   const shopItem = shopData.map((item) => {
     return (
       <ShopListItem
         key={item.id}
+        id={item.id}
         title={item.title}
         description={item.description}
         cost={item.cost}
