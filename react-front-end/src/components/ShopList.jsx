@@ -18,7 +18,6 @@ export default function ShopList() {
   }, [])
 
   const shopItem = shopData.map((item) => {
-    console.log('hello', item)
     return (
       <ShopListItem
         key={item.id}
