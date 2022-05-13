@@ -1,4 +1,4 @@
-import "./ShopListItem.css"
+import "./ShopList.css"
 
 export default function ShopListItem(props) {
 
