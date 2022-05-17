@@ -44,6 +44,10 @@ module.exports = db => {
       })
   })
 
+  // Delete Item
+  router.delete("/deleteItem/", (req, res) => {
+    console.log(req.body)
+  })
 
   return router;
 };
