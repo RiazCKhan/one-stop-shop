@@ -26,9 +26,14 @@
   margin: 0.5rem 0.25rem 0.5rem 0.25rem;
 }
 
+.cost-apperance {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+
 .edit-input {
   display: flex;
-  width: auto;
 }
 
 .shop-items-container button {

@@ -20,7 +20,9 @@ export default function ShopListItem(props) {
       </article>
       <article>
         <form onSubmit={handleSubmit} className="edit-card">
-          {cost}
+          <div className="cost-apperance">
+          $ {cost}
+          </div>
           <div className="edit-input">
             <input
               type="number"
@@ -30,6 +32,7 @@ export default function ShopListItem(props) {
               }}
             />
             <button onClick={() => onEdit(id)}>Update Cost</button>
+            <button>Delete</button>
           </div>
         </form>
       </article>
