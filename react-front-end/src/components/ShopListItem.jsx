@@ -5,7 +5,6 @@ export default function ShopListItem(props) {
   const { id, title, description, cost, onEdit, newCost, setNewCost, handleSubmit } = props;
 
   const newCostHandler = (id, newCost, value) => {
-    // let newCostCopy = { ...newCost }
     let newCostCopy = Object.assign({}, newCost)
     newCostCopy[id] = value
     return newCostCopy
@@ -19,7 +18,6 @@ export default function ShopListItem(props) {
           {description}
         </div>
       </article>
-
       <article>
         <form onSubmit={handleSubmit} className="edit-card">
           {cost}
