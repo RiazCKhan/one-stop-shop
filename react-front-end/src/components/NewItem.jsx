@@ -1,8 +1,12 @@
+import { useState } from "react"
+
 import "./NewItem.css";
 
 export default function NewItem() {
 
-
+  const [itemName, setItemName] = useState("")
+  const [itemDescription, setItemDescription] = useState("")
+  const [itemCost, setItemCost] = useState("")
 
   // axios.put('/api/new', item)
 
@@ -10,8 +14,16 @@ export default function NewItem() {
     event.preventDefault();
   }
 
+  console.log(itemName)
+
   const submit = (itemName, itemDescription, itemCost) => {
     console.log('weep')
+    const item = {
+      itemName,
+      itemDescription,
+      itemCost
+    }
+    console.log('this is the form item', item)
   }
 
 
@@ -19,15 +31,27 @@ export default function NewItem() {
 
     <form onSubmit={handleSubmit} className="add-form-container">
       <label>Item Name</label>
-      <input type="text" placeholder="Item name.." />
+      <input
+        type="text"
+        value={itemName || ""}
+        onChange={(event) => {
+          setItemName(event.target.value)
+        }}
+        placeholder="Item name.." />
 
-      <label>Item Description</label>
-      <input type="textarea" placeholder="Item Description" />
+      {/* <label>Item Description</label>
+      <input
+        type="textarea"
+        value={""}
+        placeholder="Item Description" />
 
       <label>Item Cost</label>
-      <input type="number" placeholder="$$$" />
+      <input
+        type="number"
+        value={""}
+        placeholder="$$$" /> */}
 
-      <button onClick={() => {submit()}}>
+      <button onClick={() => { submit(itemName, itemDescription, itemCost) }}>
         Submit
       </button>
     </form>
