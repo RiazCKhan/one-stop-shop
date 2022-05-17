@@ -8,7 +8,7 @@ export default function NavBar() {
         <h3>All Items</h3>
       </Link>
       <h1>One Stop Shop</h1>
-      <Link to="">
+      <Link to="/new">
         <h3>Add Item</h3>
       </Link>
     </section>
