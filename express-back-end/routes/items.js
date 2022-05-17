@@ -10,8 +10,6 @@ module.exports = db => {
 
   // Add Item
   router.post("/newItems/", (req, res) => {
-    console.log('Receive Data from Frontend', req.body)
-
     const itemName = req.body.itemName
     const itemDescription = req.body.itemDescription
     const itemCost = req.body.itemCost
@@ -30,8 +28,6 @@ module.exports = db => {
 
   // Update Item Cost
   router.put("/editItems/", (req, res) => {
-    console.log('Receive Data from Frontend', req.body)
-
     const cost = req.body.cost
     const id = req.body.id
 

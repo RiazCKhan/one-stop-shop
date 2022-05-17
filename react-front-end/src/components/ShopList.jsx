@@ -5,11 +5,9 @@ import ShopListItem from "./ShopListItem"
 import "./ShopList.css"
 
 export default function ShopList() {
-
   const [shopData, setShopData] = useState([])
-  const [newCost, setNewCost] = useState({}) // set new cost to an object, indexed based on shop data id
+  const [newCost, setNewCost] = useState({})
   const [page, setPage] = useState(false)
-
 
   useEffect(() => {
     console.log("[useEffect]: page " + page)
@@ -25,10 +23,7 @@ export default function ShopList() {
     event.preventDefault();
   }
 
-  console.log("new cost: ", newCost)
-
   const newCostHandler = (id, newCost) => {
-    // let newCostCopy = { ...newCost }
     let newCostCopy = Object.assign({}, newCost)
     newCostCopy[id] = ""
     return newCostCopy
@@ -42,8 +37,6 @@ export default function ShopList() {
     axios.put('/api/editItems', item)
       .then(() => {
         setPage(true);
-        // newCost[id] = "" // clear the new cost id
-        // setNewCost(newCost);
       })
       .then(() => {
         setNewCost(newCostHandler(id, newCost))
@@ -52,7 +45,6 @@ export default function ShopList() {
       .catch((error) => {
         console.log(error)
       })
-
   }
 
   const shopItem = shopData.map((item) => {

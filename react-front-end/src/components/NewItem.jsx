@@ -4,18 +4,14 @@ import axios from "axios";
 import "./NewItem.css";
 
 export default function NewItem() {
-
   const [itemName, setItemName] = useState("")
   const [itemDescription, setItemDescription] = useState("")
   const [itemCost, setItemCost] = useState("")
 
-  
   const handleSubmit = (event) => {
     event.preventDefault();
   }
-  
-  console.log(itemName)
-  
+
   const submit = (itemName, itemDescription, itemCost) => {
     const item = {
       itemName,
@@ -23,17 +19,15 @@ export default function NewItem() {
       itemCost
     }
     axios.post('/api/newItems', item)
-    .then(() => {
-      // alert('New Item Added!')
-    }).catch((error) => {
-      // alert('Something went wrong...')
-      console.log(error)
-    })
+      .then(() => {
+        alert('New Item Added!')
+      }).catch((error) => {
+        alert('Something went wrong...')
+        console.log(error)
+      })
   }
 
-
   return (
-
     <form onSubmit={handleSubmit} className="add-form-container">
       <label>Item Name</label>
       <input
@@ -62,9 +56,7 @@ export default function NewItem() {
         }}
         placeholder="$$$" />
 
-      <button onClick={() => { submit(itemName, itemDescription, itemCost) }}>
-        Submit
-      </button>
+      <button onClick={() => { submit(itemName, itemDescription, itemCost) }}>Submit</button>
     </form>
   )
 }
