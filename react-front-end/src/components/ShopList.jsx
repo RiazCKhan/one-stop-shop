@@ -47,8 +47,11 @@ export default function ShopList() {
   }
 
   const onDelete = (id) => {
-    // axios.delete('/api/deleteItem', id)
     console.log('click')
+    axios.delete('/api/deleteItem', id)
+      .then(() => setPage(true))
+      .then(() => setPage(false))
+      .catch((error) => console.log(error))
   }
 
   const shopItem = shopData.map((item) => {
