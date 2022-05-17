@@ -10,7 +10,6 @@ export default function ShopList() {
   const [page, setPage] = useState(false)
 
   useEffect(() => {
-    console.log("[useEffect]: page " + page)
     axios.get('/api/items')
       .then((response) => {
         setShopData(response.data)
@@ -47,8 +46,12 @@ export default function ShopList() {
       })
   }
 
+  const onDelete = (id) => {
+    // axios.delete('/api/deleteItem', id)
+    console.log('click')
+  }
+
   const shopItem = shopData.map((item) => {
-    console.log("[shopData.map] " + newCost)
     return (
       <ShopListItem
         key={item.id}
@@ -57,8 +60,9 @@ export default function ShopList() {
         description={item.description}
         cost={item.cost}
         newCost={newCost}
-        onEdit={onEdit}
         setNewCost={setNewCost}
+        onEdit={onEdit}
+        onDelete={onDelete}
         handleSubmit={handleSubmit}
       />
     )
