@@ -49,7 +49,7 @@ module.exports = db => {
     const id = req.body.id
 
     db.query(`
-    DELETE from items WHERE id = $1
+    DELETE FROM items WHERE id = $1
     `, [id])
       .then(() => {
         res.status(204).json({})
