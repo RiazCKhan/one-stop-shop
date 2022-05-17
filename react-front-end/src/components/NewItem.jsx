@@ -1,19 +1,35 @@
 import "./NewItem.css";
 
 export default function NewItem() {
+
+
+
+  // axios.put('/api/new', item)
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  }
+
+  const submit = (itemName, itemDescription, itemCost) => {
+    console.log('weep')
+  }
+
+
   return (
 
-    <form className="add-form-container">
-      <label for="item_name">Item Name</label>
+    <form onSubmit={handleSubmit} className="add-form-container">
+      <label>Item Name</label>
       <input type="text" placeholder="Item name.." />
 
-      <label for="item_desc">Item Description</label>
+      <label>Item Description</label>
       <input type="textarea" placeholder="Item Description" />
 
-      <label for="item_cost">Item Cost</label>
+      <label>Item Cost</label>
       <input type="number" placeholder="$$$" />
 
-      <input type="submit" value="Submit" />
+      <button onClick={() => {submit()}}>
+        Submit
+      </button>
     </form>
   )
 }
