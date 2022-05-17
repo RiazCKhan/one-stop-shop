@@ -7,6 +7,10 @@ module.exports = db => {
         res.json(items);
       });
   })
+  
+  router.post("/newItems/", (req, res) => {
+    console.log(req.body)
+  })
 
   // Update Item Cost
   router.put("/editItems/", (req, res) => {
