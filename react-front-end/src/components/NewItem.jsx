@@ -8,22 +8,26 @@ export default function NewItem() {
   const [itemDescription, setItemDescription] = useState("")
   const [itemCost, setItemCost] = useState("")
 
-  // axios.put('/api/new', item)
-
+  
   const handleSubmit = (event) => {
     event.preventDefault();
   }
-
+  
   console.log(itemName)
-
+  
   const submit = (itemName, itemDescription, itemCost) => {
-    console.log('weep')
     const item = {
       itemName,
       itemDescription,
       itemCost
     }
-    console.log('this is the form item', item)
+    axios.put('/api/new', item)
+    .then(() => {
+      // alert('New Item Added!')
+    }).catch((error) => {
+      // alert('Something went wrong...')
+      console.log(error)
+    })
   }
 
 
