@@ -8,6 +8,26 @@ module.exports = db => {
       });
   })
 
+  // Add Item
+  router.post("/newItems/", (req, res) => {
+    console.log('Receive Data from Frontend', req.body)
+
+    const itemName = req.body.itemName
+    const itemDescription = req.body.itemDescription
+    const itemCost = req.body.itemCost
+
+    db.query(`
+    INSERT INTO items (title, description, cost) 
+    VALUES ($1::VARCHAR, $2::VARCHAR, $3::INT)
+    `, [itemName, itemDescription, itemCost])
+      .then(() => {
+        res.status(204).json({})
+        console.log("Item Added")
+      }).catch((error) => {
+        console.log('Cost Update Error', error)
+      })
+  })
+
   // Update Item Cost
   router.put("/editItems/", (req, res) => {
     console.log('Receive Data from Frontend', req.body)
