@@ -8,6 +8,7 @@ const app = express();
 const db = require("./database");
 
 const items = require("./routes/items");
+const newItem = require("./routes/new")
 
 module.exports = function application( ENV ) {
   app.use(cors());
@@ -15,6 +16,7 @@ module.exports = function application( ENV ) {
   app.use(bodyparser.json());
 
   app.use("/api", items(db));
+  app.use("/api", newItem(db));
 
   app.close = function() {
     return db.end();
