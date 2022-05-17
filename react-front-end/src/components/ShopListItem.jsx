@@ -2,7 +2,7 @@ import "./ShopList.css"
 
 export default function ShopListItem(props) {
 
-  const { id, title, description, cost, onEdit, newCost, setNewCost, handleSubmit } = props;
+  const { id, title, description, cost, onEdit, onDelete, newCost, setNewCost, handleSubmit } = props;
 
   const newCostHandler = (id, newCost, value) => {
     let newCostCopy = Object.assign({}, newCost)
@@ -32,7 +32,7 @@ export default function ShopListItem(props) {
               }}
             />
             <button onClick={() => onEdit(id)}>Update Cost</button>
-            <button>Delete</button>
+            <button onClick={() => onDelete(id)}>Delete</button>
           </div>
         </form>
       </article>
