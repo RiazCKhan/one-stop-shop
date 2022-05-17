@@ -22,7 +22,7 @@ export default function NewItem() {
       itemDescription,
       itemCost
     }
-    axios.put('/api/new', item)
+    axios.post('/api/newItems', item)
     .then(() => {
       // alert('New Item Added!')
     }).catch((error) => {
