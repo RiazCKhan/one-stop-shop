@@ -39,17 +39,23 @@ export default function NewItem() {
         }}
         placeholder="Item name.." />
 
-      {/* <label>Item Description</label>
+      <label>Item Description</label>
       <input
         type="textarea"
-        value={""}
+        value={itemDescription || ""}
+        onChange={(event) => {
+          setItemDescription(event.target.value)
+        }}
         placeholder="Item Description" />
 
       <label>Item Cost</label>
       <input
         type="number"
-        value={""}
-        placeholder="$$$" /> */}
+        value={itemCost || ""}
+        onChange={(event) => {
+          setItemCost(event.target.value)
+        }}
+        placeholder="$$$" />
 
       <button onClick={() => { submit(itemName, itemDescription, itemCost) }}>
         Submit
