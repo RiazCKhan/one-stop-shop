@@ -11,7 +11,7 @@ export default function NewItem() {
   const handleSubmit = (event) => {
     event.preventDefault();
   }
-  
+
   const submit = (itemName, itemDescription, itemCost) => {
     const item = {
       itemName,
@@ -19,12 +19,12 @@ export default function NewItem() {
       itemCost
     }
     axios.post('/api/newItems', item)
-    .then(() => {
-      alert('New Item Added!')
-    }).catch((error) => {
-      alert('Something went wrong...')
-      console.log(error)
-    })
+      .then(() => {
+        alert('New Item Added!')
+      }).catch((error) => {
+        alert('Something went wrong...')
+        console.log(error)
+      })
   }
 
   return (
@@ -56,9 +56,7 @@ export default function NewItem() {
         }}
         placeholder="$$$" />
 
-      <button onClick={() => { submit(itemName, itemDescription, itemCost) }}>
-        Submit
-      </button>
+      <button onClick={() => { submit(itemName, itemDescription, itemCost) }}>Submit</button>
     </form>
   )
 }
