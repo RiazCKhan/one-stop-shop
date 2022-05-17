@@ -44,6 +44,20 @@ module.exports = db => {
       })
   })
 
+  // Delete Item
+  router.delete("/deleteItem/", (req, res) => {
+    const id = req.body.id
+
+    db.query(`
+    DELETE FROM items WHERE id = $1
+    `, [id])
+      .then(() => {
+        res.status(204).json({})
+        console.log("Cost Updated")
+      }).catch((error) => {
+        console.log('Cost Update Error', error)
+      })
+  })
 
   return router;
 };
