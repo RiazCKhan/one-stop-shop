@@ -16,43 +16,38 @@ export default function ShopList() {
       }).catch((error) => {
         console.log('Error', error)
       })
-  }, [page])
+  }, [page]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  }
+  };
 
   const newCostHandler = (id, newCost) => {
     let newCostCopy = Object.assign({}, newCost)
     newCostCopy[id] = ""
     return newCostCopy
-  }
+  };
 
   const onEdit = (id) => {
     const item = {
-      id: id,
+      id,
       cost: newCost[id]
     }
     axios.put('/api/editItems', item)
-      .then(() => {
-        setPage(true);
-      })
+      .then(() => setPage(true))
       .then(() => {
         setNewCost(newCostHandler(id, newCost))
         setPage(false);
       })
-      .catch((error) => {
-        console.log(error)
-      })
-  }
+      .catch((error) => console.log(error))
+  };
 
   const onDelete = (id) => {
-    console.log(id)
-    axios.delete('/api/deleteItem', { data: { id }})
-      // .then(() => setPage(true))
-      // .then(() => setPage(false))
-      // .catch((error) => console.log(error))
-  }
+    axios.delete('/api/deleteItem', { data: { id } })
+      .then(() => setPage(true))
+      .then(() => setPage(false))
+      .catch((error) => console.log(error))
+  };
 
   const shopItem = shopData.map((item) => {
     return (
