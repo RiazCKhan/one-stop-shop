@@ -25,13 +25,13 @@ export default function ShopListItem(props) {
             $ {cost}
           </div>
           <div className="edit-input">
-            <input
+            {/* <input
               type="number"
               value={newCost[id] || ""}
               onChange={(event) => {
                 setNewCost(newCostHandler(id, newCost, event.target.value))
               }}
-            />
+            /> */}
             <Link to={`/edit/${id}`}>
               <button>Edit</button>
             </Link>

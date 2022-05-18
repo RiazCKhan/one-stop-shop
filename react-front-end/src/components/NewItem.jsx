@@ -59,7 +59,8 @@ export default function NewItem(props) {
         }}
         placeholder="$$$" />
 
-      <button onClick={() => { submit(itemName, itemDescription, itemCost) }}>Submit</button>
+      {editItemPage ? <button>Update</button> : <button onClick={() => { submit(itemName, itemDescription, itemCost) }}>Submit</button>}
+
     </form>
   )
 }
