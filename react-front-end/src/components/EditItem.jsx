@@ -19,6 +19,20 @@ export default function EditItem() {
       .catch((error) => console.log('error', error))
   }, []);
 
+  const onEdit = (id, title, description, cost) => {
+    const item = {
+      id,
+      cost: newCost[id]
+    }
+    axios.put('/api/editItems', item)
+      // .then(() => setPage(true))
+      // .then(() => {
+      //   setNewCost(newCostHandler(id, newCost))
+      //   setPage(false);
+      // })
+      // .catch((error) => console.log(error))
+  };
+
   const singleItemInfo = item.map((itemInfo) => {
     return (
       <NewItem
@@ -28,6 +42,7 @@ export default function EditItem() {
         title={itemInfo.title}
         description={itemInfo.description}
         cost={itemInfo.cost}
+        onEdit={onEdit}
       />
     )
   })
