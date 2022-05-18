@@ -30,7 +30,6 @@ export default function EditItem() {
       description,
       cost
     }
-
     axios.put('/api/editItems', item)
       .then(() => alert('Item Edit Successful'))
       .catch(() => alert('Something went wrong...'))
