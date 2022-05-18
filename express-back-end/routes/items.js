@@ -39,7 +39,7 @@ module.exports = db => {
 
     db.query(`
     INSERT INTO items (title, description, cost) 
-    VALUES ($1::VARCHAR, $2::VARCHAR, $3::INT)
+    VALUES ($1::VARCHAR, $2::VARCHAR, $3::FLOAT)
     `, [itemName, itemDescription, itemCost])
       .then(() => {
         res.status(204).json({})
