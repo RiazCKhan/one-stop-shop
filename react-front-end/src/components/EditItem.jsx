@@ -20,7 +20,6 @@ export default function EditItem() {
   }, []);
 
   const onEdit = (id, title, description, cost) => {
-
     if (!title, !description, !cost) {
       return null
     }
@@ -31,13 +30,10 @@ export default function EditItem() {
       description,
       cost
     }
+
     axios.put('/api/editItems', item)
-    // .then(() => setPage(true))
-    // .then(() => {
-    //   setNewCost(newCostHandler(id, newCost))
-    //   setPage(false);
-    // })
-    // .catch((error) => console.log(error))
+      .then(() => alert('Item Edit Successful'))
+      .catch(() => alert('Something went wrong...'))
   };
 
   const singleItemInfo = item.map((itemInfo) => {

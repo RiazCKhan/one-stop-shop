@@ -21,12 +21,8 @@ export default function NewItem(props) {
       itemCost
     }
     axios.post('/api/newItems', item)
-      .then(() => {
-        alert('New Item Added!')
-      }).catch((error) => {
-        alert('Something went wrong...')
-        console.log(error)
-      })
+      .then(() => alert('New Item Added!'))
+      .catch(() => alert('Something went wrong...'))
   }
 
   return (
