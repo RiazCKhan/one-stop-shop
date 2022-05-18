@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
+import ShopListItem from "./ShopListItem";
 
 export default function ItemBin() {
 const [deletedItems, setDeletedItems] = useState([])
@@ -10,10 +11,23 @@ const [deletedItems, setDeletedItems] = useState([])
       .catch((error) => console.log('Error', error))
   }, []);
 
-console.log(deletedItems)
+const binItems = deletedItems.map((item) => {
+  console.log(item)
+  return (
+    <ShopListItem 
+    key={item.id}
+    id={item.id}
+    title={item.title}
+    description={item.description}
+    cost={item.cost}
+    bin={item.is_deleted}
+    />
+  )
+})
 
   return (
     <>
+    {binItems}
     </>
   )
 }
