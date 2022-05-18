@@ -3,13 +3,7 @@ import "./ShopList.css"
 
 export default function ShopListItem(props) {
 
-  const { id, title, description, cost, onEdit, onDelete, newCost, setNewCost, handleSubmit } = props;
-
-  const newCostHandler = (id, newCost, value) => {
-    let newCostCopy = Object.assign({}, newCost)
-    newCostCopy[id] = value
-    return newCostCopy
-  }
+  const { id, title, description, cost, onDelete, handleSubmit } = props;
 
   return (
     <article className="item-card">
@@ -25,13 +19,6 @@ export default function ShopListItem(props) {
             $ {cost}
           </div>
           <div className="edit-input">
-            {/* <input
-              type="number"
-              value={newCost[id] || ""}
-              onChange={(event) => {
-                setNewCost(newCostHandler(id, newCost, event.target.value))
-              }}
-            /> */}
             <Link to={`/edit/${id}`}>
               <button>Edit</button>
             </Link>
