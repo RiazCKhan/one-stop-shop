@@ -22,7 +22,7 @@ let singleItemRequest = {
 
   return (
     <>
-      <NewItem />
+      <NewItem title={'title'}/>
     </>
   )
 }
