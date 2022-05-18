@@ -32,36 +32,49 @@ export default function NewItem(props) {
   return (
     <form onSubmit={handleSubmit} className="add-form-container">
       {editItemPage ? <h3>Edit Item</h3> : <h3>Add Item</h3>}
-      <label>Item Name</label>
+      {title ? <label>{title}</label> : <label>Item Name</label>}
       <input
         type="text"
-        value={itemName || title}
+        value={itemName || ""}
         onChange={(event) => {
           setItemName(event.target.value)
         }}
-        placeholder="Item name.." />
+        required="required"
+        placeholder={title ? "New item name" : "Item name..."} />
 
-      <label>Item Description</label>
+      {editItemPage ?
+        <label className="">Item Description:
+          <br></br>
+          <span><small>{description}</small></span>
+        </label> :
+        <label>Item Description</label>}
       <input
         type="textarea"
-        value={itemDescription || description}
+        value={itemDescription || ""}
         onChange={(event) => {
           setItemDescription(event.target.value)
         }}
-        placeholder="Item Description" />
+        required="required"
+        placeholder={description ? "New description" : "Item description..."} />
 
-      <label>Item Cost</label>
+      {editItemPage ?
+        <label>Item Cost:
+          <br></br>
+          <span><small>$ {cost}</small></span>
+        </label> :
+        <label>Item Cost</label>}
       <input
         type="number"
-        value={itemCost || cost}
+        value={itemCost || ""}
         onChange={(event) => {
           setItemCost(event.target.value)
         }}
-        placeholder="$$$" />
+        required="required"
+        placeholder={cost ? "New cost" : "Item cost..."} />
 
-      {editItemPage ? 
-      <button onClick={() => { onEdit(id, title, description, cost) }}>Update</button> : 
-      <button onClick={() => { submit(itemName, itemDescription, itemCost) }}>Submit</button>}
+      {editItemPage ?
+        <button onClick={() => { onEdit(id, itemName, itemDescription, itemCost) }}>Update</button> :
+        <button onClick={() => { submit(itemName, itemDescription, itemCost) }}>Submit</button>}
     </form>
   )
 }
