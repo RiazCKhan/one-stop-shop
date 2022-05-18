@@ -8,7 +8,7 @@ export default function NewItem(props) {
   const [itemDescription, setItemDescription] = useState("")
   const [itemCost, setItemCost] = useState("")
 
-  const { editItemPage, title, description, cost } = props
+  const { editItemPage, id, title, description, cost } = props
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -59,8 +59,9 @@ export default function NewItem(props) {
         }}
         placeholder="$$$" />
 
-      {editItemPage ? <button>Update</button> : <button onClick={() => { submit(itemName, itemDescription, itemCost) }}>Submit</button>}
-
+      {editItemPage ? 
+      <button onClick={() => { onEdit(id, title, description, cost) }}>Update</button> : 
+      <button onClick={() => { submit(itemName, itemDescription, itemCost) }}>Submit</button>}
     </form>
   )
 }
