@@ -20,17 +20,24 @@ export default function EditItem() {
   }, []);
 
   const onEdit = (id, title, description, cost) => {
+
+    if (!title, !description, !cost) {
+      return null
+    }
+
     const item = {
       id,
-      cost: newCost[id]
+      title,
+      description,
+      cost
     }
     axios.put('/api/editItems', item)
-      // .then(() => setPage(true))
-      // .then(() => {
-      //   setNewCost(newCostHandler(id, newCost))
-      //   setPage(false);
-      // })
-      // .catch((error) => console.log(error))
+    // .then(() => setPage(true))
+    // .then(() => {
+    //   setNewCost(newCostHandler(id, newCost))
+    //   setPage(false);
+    // })
+    // .catch((error) => console.log(error))
   };
 
   const singleItemInfo = item.map((itemInfo) => {
