@@ -43,13 +43,18 @@ module.exports = db => {
   router.put("/editItems/", (req, res) => {
     console.log(req.body)
     const id = req.body.id
+    const title = req.body.title
+    const description = req.body.description
     const cost = req.body.cost
 
     db.query(`
     UPDATE items
-    SET cost = $1
-    WHERE items.id = $2
-    `, [cost, id])
+    SET 
+    title = $1,
+    description = $2,
+    cost = $3
+    WHERE id = $4
+    `, [title, description, cost, id])
       .then(() => {
         res.status(204).json({})
         console.log("Item Updated")
