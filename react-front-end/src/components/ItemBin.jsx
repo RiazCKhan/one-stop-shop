@@ -13,8 +13,11 @@ const [deletedItems, setDeletedItems] = useState([])
       .catch((error) => console.log('Error', error))
   }, []);
 
+  const onRestore = (id) => {
+    axios.put('/api/restoreItem/', { id })
+  }
+
 const binItems = deletedItems.map((item) => {
-  console.log(item)
   return (
     <ShopListItem 
     key={item.id}
@@ -24,6 +27,7 @@ const binItems = deletedItems.map((item) => {
     cost={item.cost}
     deletionComment={item.comment}
     bin={item.is_deleted}
+    onRestore={onRestore}
     />
   )
 })
