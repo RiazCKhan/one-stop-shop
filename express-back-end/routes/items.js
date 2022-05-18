@@ -64,12 +64,14 @@ module.exports = db => {
   })
 
   // Delete Item
-  router.delete("/deleteItem/", (req, res) => {
+  router.put("/deleteItem/", (req, res) => {
     const id = req.body.id
 
     db.query(`
-    DELETE FROM items WHERE id = $1
-    `, [id])
+    UPDATE items
+    SET is_deleted = $1
+    WHERE id = $2
+    `, [true, id])
       .then(() => {
         res.status(204).json({})
         console.log("Item Deleted")
