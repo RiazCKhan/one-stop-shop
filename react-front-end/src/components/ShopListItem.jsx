@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import Modal from "react-modal"
 import "./ShopList.css"
 
+Modal.setAppElement('#root')
+
 export default function ShopListItem(props) {
   const { id, title, description, cost,
     onDelete, showModal, setShowModal,
@@ -41,8 +43,8 @@ export default function ShopListItem(props) {
               setComment(event.target.value)
             }}
           />
-          <span>Are you sure </span>
-          <button onClick={() => onDelete(id)}>Confirm</button>
+          <p>Are you sure </p>
+          <button onClick={() => onDelete(id, comment)}>Confirm</button>
           <button onClick={() => setShowModal(false)}>Close</button>
         </Modal>
       </article>
