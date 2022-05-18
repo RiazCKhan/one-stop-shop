@@ -14,7 +14,13 @@ export default function NewItem(props) {
     event.preventDefault();
   }
 
-  const submit = (itemName, itemDescription, itemCost) => {
+  const reset = () => {
+    setItemName("")
+    setItemDescription("")
+    setItemCost("")
+  }
+
+  const onAdd = (itemName, itemDescription, itemCost) => {
     const item = {
       itemName,
       itemDescription,
@@ -23,6 +29,13 @@ export default function NewItem(props) {
     axios.post('/api/newItems', item)
       .then(() => alert('New Item Added!'))
       .catch(() => alert('Something went wrong...'))
+
+    reset();
+  }
+
+  const editHandler = () => {
+    onEdit(id, itemName, itemDescription, itemCost);
+    reset();
   }
 
   return (
@@ -69,8 +82,8 @@ export default function NewItem(props) {
         placeholder={cost ? "New cost" : "Item cost..."} />
 
       {editItemPage ?
-        <button onClick={() => { onEdit(id, itemName, itemDescription, itemCost) }}>Update</button> :
-        <button onClick={() => { submit(itemName, itemDescription, itemCost) }}>Submit</button>}
+        <button onClick={() => { editHandler() }}>Update</button> :
+        <button onClick={() => { onAdd(itemName, itemDescription, itemCost) }}>Add</button>}
     </form>
   )
 }
