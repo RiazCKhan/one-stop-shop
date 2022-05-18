@@ -66,12 +66,13 @@ module.exports = db => {
   // Delete Item
   router.put("/deleteItem/", (req, res) => {
     const id = req.body.id
+    const setDelete = true
 
     db.query(`
     UPDATE items
     SET is_deleted = $1
     WHERE id = $2
-    `, [true, id])
+    `, [setDelete, id])
       .then(() => {
         res.status(204).json({})
         console.log("Item Deleted")
