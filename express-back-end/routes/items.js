@@ -35,14 +35,15 @@ module.exports = db => {
         res.status(204).json({})
         console.log("Item Added")
       }).catch((error) => {
-        console.log('Cost Update Error', error)
+        console.log('Item Add Error', error)
       })
   });
 
-  // Update Item Cost
+  // Update Item
   router.put("/editItems/", (req, res) => {
-    const cost = req.body.cost
+    console.log(req.body)
     const id = req.body.id
+    const cost = req.body.cost
 
     db.query(`
     UPDATE items
@@ -51,9 +52,9 @@ module.exports = db => {
     `, [cost, id])
       .then(() => {
         res.status(204).json({})
-        console.log("Cost Updated")
+        console.log("Item Updated")
       }).catch((error) => {
-        console.log('Cost Update Error', error)
+        console.log('Item Update Error', error)
       })
   })
 
@@ -66,9 +67,9 @@ module.exports = db => {
     `, [id])
       .then(() => {
         res.status(204).json({})
-        console.log("Cost Updated")
+        console.log("Item Deleted")
       }).catch((error) => {
-        console.log('Cost Update Error', error)
+        console.log('Item Deletion Error', error)
       })
   })
 
