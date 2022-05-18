@@ -24,12 +24,15 @@ export default function ShopList() {
   };
 
   const onDelete = (id, comment) => {
-    console.log('comment', comment)
-    console.log('id', id)
-    // axios.put('/api/deleteItem', { id })
-    //   .then(() => setPage(true))
-    //   .then(() => setPage(false))
-    //   .catch((error) => console.log(error))
+   
+    const data = {
+      id,
+      comment
+    }
+    axios.put('/api/deleteItem', data)
+      .then(() => setPage(true))
+      .then(() => setPage(false))
+      .catch((error) => console.log(error))
 
     setShowModal(false);
   };
