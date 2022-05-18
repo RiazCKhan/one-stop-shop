@@ -6,6 +6,8 @@ import "./ShopList.css"
 
 export default function ShopList() {
   const [shopData, setShopData] = useState([])
+  const [showModal, setShowModal] = useState(false)
+  const [comment, setComment] = useState("")
   const [page, setPage] = useState(false)
 
   useEffect(() => {
@@ -22,10 +24,12 @@ export default function ShopList() {
   };
 
   const onDelete = (id) => {
-    axios.delete('/api/deleteItem', { data: { id } })
-      .then(() => setPage(true))
-      .then(() => setPage(false))
-      .catch((error) => console.log(error))
+    // axios.put('/api/deleteItem', { id })
+    //   .then(() => setPage(true))
+    //   .then(() => setPage(false))
+    //   .catch((error) => console.log(error))
+
+    setShowModal(false);
   };
 
   const shopItem = shopData.map((item) => {
@@ -36,8 +40,10 @@ export default function ShopList() {
         title={item.title}
         description={item.description}
         cost={item.cost}
-        onDelete={onDelete}
         handleSubmit={handleSubmit}
+        onDelete={onDelete}
+        showModal={showModal}
+        setShowModal={setShowModal}
       />
     )
   })

@@ -3,7 +3,7 @@ const router = require("express").Router();
 module.exports = db => {
   // Retrieve ALL Items
   router.get("/items", (req, res) => {
-    db.query(`SELECT * FROM items`)
+    db.query(`SELECT * FROM items WHERE is_deleted = false`)
       .then(({ rows: items }) => {
         res.json(items);
       });
@@ -15,7 +15,8 @@ module.exports = db => {
 
     db.query(`
       SELECT * FROM items 
-      WHERE id = $1`, [id])
+      WHERE id = $1
+      AND is_deleted = false`, [id])
       .then(({ rows: item }) => {
         res.json(item);
       });
@@ -64,12 +65,15 @@ module.exports = db => {
   })
 
   // Delete Item
-  router.delete("/deleteItem/", (req, res) => {
+  router.put("/deleteItem/", (req, res) => {
     const id = req.body.id
+    const setDelete = true
 
     db.query(`
-    DELETE FROM items WHERE id = $1
-    `, [id])
+    UPDATE items
+    SET is_deleted = $1
+    WHERE id = $2
+    `, [setDelete, id])
       .then(() => {
         res.status(204).json({})
         console.log("Item Deleted")
