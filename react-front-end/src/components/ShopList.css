@@ -8,7 +8,8 @@
   border: 1px solid black;
   margin: .5rem;
   padding: 1rem 2rem 1rem 2rem;
-  width: 30%;
+  text-align: center;
+  width: auto;
 
   /* Add shadows to create the "card" effect */
   box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.2);
@@ -22,6 +23,8 @@
 
 .edit-card {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
   margin: 0.5rem 0.25rem 0.5rem 0.25rem;
 }
@@ -29,7 +32,7 @@
 .cost-apperance {
   display: flex;
   align-items: center;
-  margin-right: 0.5rem;
+  margin: 0.25rem;
 }
 
 .edit-input {
@@ -37,5 +40,5 @@
 }
 
 .shop-items-container button {
-  margin-left: 0.25rem;
+  margin: 0.5rem;
 }

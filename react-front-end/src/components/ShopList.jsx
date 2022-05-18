@@ -6,7 +6,6 @@ import "./ShopList.css"
 
 export default function ShopList() {
   const [shopData, setShopData] = useState([])
-  const [newCost, setNewCost] = useState({})
   const [page, setPage] = useState(false)
 
   useEffect(() => {
@@ -20,26 +19,6 @@ export default function ShopList() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  };
-
-  const newCostHandler = (id, newCost) => {
-    let newCostCopy = Object.assign({}, newCost)
-    newCostCopy[id] = ""
-    return newCostCopy
-  };
-
-  const onEdit = (id) => {
-    const item = {
-      id,
-      cost: newCost[id]
-    }
-    axios.put('/api/editItems', item)
-      .then(() => setPage(true))
-      .then(() => {
-        setNewCost(newCostHandler(id, newCost))
-        setPage(false);
-      })
-      .catch((error) => console.log(error))
   };
 
   const onDelete = (id) => {
@@ -57,9 +36,6 @@ export default function ShopList() {
         title={item.title}
         description={item.description}
         cost={item.cost}
-        newCost={newCost}
-        setNewCost={setNewCost}
-        onEdit={onEdit}
         onDelete={onDelete}
         handleSubmit={handleSubmit}
       />
