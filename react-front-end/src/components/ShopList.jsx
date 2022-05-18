@@ -12,11 +12,8 @@ export default function ShopList() {
 
   useEffect(() => {
     axios.get('/api/items')
-      .then((response) => {
-        setShopData(response.data)
-      }).catch((error) => {
-        console.log('Error', error)
-      })
+      .then((response) => setShopData(response.data))
+      .catch((error) => console.log('Error', error))
   }, [page]);
 
   const handleSubmit = (event) => {
