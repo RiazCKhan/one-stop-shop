@@ -6,18 +6,23 @@ import axios from "axios";
 
 export default function EditItem() {
 
-  console.log('what am i', useParams())
-
   let { itemId } = useParams()
-  console.log(itemId)
 
-useEffect(() => {
-  // axios.get(`/api/item/`)
-})
+
+let singleItemRequest = {
+  method: 'GET',
+  url: `/api/item/${itemId}`
+}
+
+  useEffect(() => {
+    axios.request(singleItemRequest)
+    .then((res) => console.log('success'))
+    .catch((error) => console.log('error'))
+  }, [])
 
   return (
     <>
-    <NewItem />
+      <NewItem />
     </>
   )
 }
