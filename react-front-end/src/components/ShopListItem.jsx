@@ -8,7 +8,9 @@ export default function ShopListItem(props) {
   const { id, title, description, cost,
     onDelete, showModal, setShowModal,
     comment, setComment,
-    handleSubmit } = props;
+    handleSubmit, bin } = props;
+
+  console.log(bin)
 
   return (
     <article className="item-card">
@@ -25,10 +27,11 @@ export default function ShopListItem(props) {
             $ {cost}
           </div>
           <div className="edit-input">
-            <Link to={`/edit/${id}`}>
-              <button>Edit</button>
-            </Link>
-            <button onClick={() => setShowModal(true)}>Delete</button>
+            {bin ? <button>Restore</button> :
+              <Link to={`/edit/${id}`}>
+                <button>Edit</button>
+              </Link>}
+            {bin ? null : <button onClick={() => setShowModal(true)}>Delete</button>}
           </div>
         </form>
       </article>
