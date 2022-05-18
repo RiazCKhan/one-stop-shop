@@ -28,7 +28,6 @@ module.exports = db => {
 
   // Retrieve Single Item to Edit
   router.get("/item/:id", (req, res) => {
-    console.log('req body', req.body)
     console.log('req params', req.params)
 
     // db.query(`
