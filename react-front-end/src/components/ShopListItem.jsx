@@ -21,7 +21,7 @@ export default function ShopListItem(props) {
       <article>
         <form onSubmit={handleSubmit} className="edit-card">
           <div className="cost-apperance">
-          $ {cost}
+            $ {cost}
           </div>
           <div className="edit-input">
             <input
@@ -31,7 +31,10 @@ export default function ShopListItem(props) {
                 setNewCost(newCostHandler(id, newCost, event.target.value))
               }}
             />
-            <button onClick={() => onEdit(id)}>Update Cost</button>
+            <Link to="/edit">
+              <button onClick={() => console.log('link')}>Edit</button>
+              {/* <button onClick={() => onEdit(id)}>Edit</button> */}
+            </Link>
             <button onClick={() => onDelete(id)}>Delete</button>
           </div>
         </form>
