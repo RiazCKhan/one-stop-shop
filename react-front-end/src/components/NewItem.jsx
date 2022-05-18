@@ -8,7 +8,7 @@ export default function NewItem(props) {
   const [itemDescription, setItemDescription] = useState("")
   const [itemCost, setItemCost] = useState("")
 
-  const { title } = props
+  const { editItemPage, title, description, cost } = props
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -31,10 +31,11 @@ export default function NewItem(props) {
 
   return (
     <form onSubmit={handleSubmit} className="add-form-container">
-      {title ? <label>{title}</label> : <label>Item Name</label>}
+      {editItemPage ? <h3>Edit Item</h3> : <h3>Add Item</h3>}
+      <label>Item Name</label>
       <input
         type="text"
-        value={itemName || ""}
+        value={itemName || title}
         onChange={(event) => {
           setItemName(event.target.value)
         }}
@@ -43,7 +44,7 @@ export default function NewItem(props) {
       <label>Item Description</label>
       <input
         type="textarea"
-        value={itemDescription || ""}
+        value={itemDescription || description}
         onChange={(event) => {
           setItemDescription(event.target.value)
         }}
@@ -52,7 +53,7 @@ export default function NewItem(props) {
       <label>Item Cost</label>
       <input
         type="number"
-        value={itemCost || ""}
+        value={itemCost || cost}
         onChange={(event) => {
           setItemCost(event.target.value)
         }}
