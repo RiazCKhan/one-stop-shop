@@ -8,7 +8,7 @@ export default function NewItem(props) {
   const [itemDescription, setItemDescription] = useState("")
   const [itemCost, setItemCost] = useState("")
 
-  const { editItemPage, id, title, description, cost } = props
+  const { editItemPage, id, title, description, cost, onEdit } = props
 
   const handleSubmit = (event) => {
     event.preventDefault();
