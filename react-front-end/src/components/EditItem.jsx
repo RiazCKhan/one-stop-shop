@@ -20,7 +20,7 @@ export default function EditItem() {
   }, []);
 
   const onEdit = (id, title, description, cost) => {
-    if (!title, !description, !cost) {
+    if (!title || !description || !cost) {
       return null
     }
 
