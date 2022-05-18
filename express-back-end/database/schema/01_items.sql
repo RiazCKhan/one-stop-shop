@@ -3,5 +3,7 @@ CREATE TABLE items (
   id SERIAL PRIMARY KEY NOT NULL,
   title VARCHAR(255) NOT NULL,
   description VARCHAR(255) NOT NULL,
-  cost INT
+  cost INT,
+  is_deleted BOOLEAN DEFAULT 'false',
+  comment VARCHAR(255)
 );
