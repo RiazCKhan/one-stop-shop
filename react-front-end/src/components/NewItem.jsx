@@ -3,10 +3,12 @@ import axios from "axios";
 
 import "./NewItem.css";
 
-export default function NewItem() {
+export default function NewItem(props) {
   const [itemName, setItemName] = useState("")
   const [itemDescription, setItemDescription] = useState("")
   const [itemCost, setItemCost] = useState("")
+
+  const { title } = props
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -29,7 +31,7 @@ export default function NewItem() {
 
   return (
     <form onSubmit={handleSubmit} className="add-form-container">
-      <label>Item Name</label>
+      {title ? <label>{title}</label> : <label>Item Name</label>}
       <input
         type="text"
         value={itemName || ""}
