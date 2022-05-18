@@ -1,10 +1,23 @@
 const router = require("express").Router();
 
 module.exports = db => {
+  // Retrieve ALL Items
   router.get("/items", (req, res) => {
     db.query(`SELECT * FROM items`)
       .then(({ rows: items }) => {
         res.json(items);
+      });
+  })
+
+  // Retrieve Single Item to Edit
+  router.get("/item/:id", (req, res) => {
+    const id = req.params.id
+
+    db.query(`
+      SELECT * FROM items 
+      WHERE id = $1`, [id])
+      .then(({ rows: item }) => {
+        res.json(item);
       });
   })
 
@@ -25,21 +38,6 @@ module.exports = db => {
         console.log('Cost Update Error', error)
       })
   });
-
-  // Retrieve Single Item to Edit
-  router.get("/item/:id", (req, res) => {
-    console.log('req params', req.params)
-
-    // db.query(`
-    // SELECT * FROM items 
-    // WHERE id = $1`, [id])
-    //   .then(() => {
-    //     res.status(204).json({})
-    //     console.log("Cost Updated")
-    //   }).catch((error) => {
-    //     console.log('Cost Update Error', error)
-    //   })
-  })
 
   // Update Item Cost
   router.put("/editItems/", (req, res) => {
