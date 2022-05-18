@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from './components/NavBar';
-import Home from "./components/Home";
 import NewItem from "./components/NewItem";
 import EditItem from "./components/EditItem";
+import ShopList from "./components/ShopList";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
         <NavBar />
       </>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<ShopList />} />
         <Route path="/new" element={<NewItem />} />
         <Route path="/edit/:itemId" element={<EditItem />} />
       </Routes>
