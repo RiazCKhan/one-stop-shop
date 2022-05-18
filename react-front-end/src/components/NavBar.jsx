@@ -7,7 +7,7 @@ export default function NavBar() {
       <Link to="/">
         <h3>All Items</h3>
       </Link>
-      <h1>One Stop Shop</h1>
+      <h1>One Stop Shop - Admin Panel</h1>
       <Link to="/new">
         <h3>Add Item</h3>
       </Link>
