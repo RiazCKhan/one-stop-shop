@@ -8,7 +8,7 @@ export default function ShopListItem(props) {
   const { id, title, description, cost,
     onDelete, showModal, setShowModal,
     comment, setComment,
-    handleSubmit, bin } = props;
+    handleSubmit, bin, deletionComment } = props;
 
   console.log(bin)
 
@@ -23,9 +23,10 @@ export default function ShopListItem(props) {
 
       <article>
         <form onSubmit={handleSubmit} className="edit-card">
-          <div className="cost-apperance">
+          <div className="center-space">
             $ {cost}
           </div>
+          {bin && <p className="center-space">Deletion Comment: {deletionComment}</p>}
           <div className="edit-input">
             {bin ? <button>Restore</button> :
               <Link to={`/edit/${id}`}>
