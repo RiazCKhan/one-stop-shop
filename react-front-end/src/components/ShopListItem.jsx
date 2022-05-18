@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import "./ShopList.css"
 
 export default function ShopListItem(props) {
-
   const { id, title, description, cost, onDelete, handleSubmit } = props;
 
   return (
