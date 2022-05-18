@@ -38,7 +38,7 @@ export default function ShopListItem(props) {
           <h3>Optional: Add Deletion Comment</h3>
           <input
             type="text"
-            value={comment}
+            value={comment || ""}
             onChange={(event) => {
               setComment(event.target.value)
             }}
