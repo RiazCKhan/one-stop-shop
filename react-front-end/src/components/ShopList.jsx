@@ -24,7 +24,6 @@ export default function ShopList() {
   };
 
   const onDelete = (id, comment) => {
-   
     const data = {
       id,
       comment
