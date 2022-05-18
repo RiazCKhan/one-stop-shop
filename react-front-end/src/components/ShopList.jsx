@@ -46,6 +46,8 @@ export default function ShopList() {
         onDelete={onDelete}
         showModal={showModal}
         setShowModal={setShowModal}
+        comment={comment}
+        setComment={setComment}
       />
     )
   })
