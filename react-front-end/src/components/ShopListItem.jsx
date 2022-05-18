@@ -10,8 +10,6 @@ export default function ShopListItem(props) {
     comment, setComment,
     handleSubmit, bin, deletionComment } = props;
 
-  console.log(bin)
-
   return (
     <article className="item-card">
       <h1>{title}</h1>
