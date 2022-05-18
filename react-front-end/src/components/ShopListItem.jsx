@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import NewItem from "./NewItem";
 import "./ShopList.css"
 
 export default function ShopListItem(props) {
@@ -34,7 +33,7 @@ export default function ShopListItem(props) {
               }}
             />
             <Link to={`/edit/${id}`}>
-              <button onClick={() => console.log(id)}>Edit</button>
+              <button>Edit</button>
             </Link>
             <button onClick={() => onDelete(id)}>Delete</button>
           </div>
