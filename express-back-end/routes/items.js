@@ -22,6 +22,15 @@ module.exports = db => {
       });
   })
 
+  // Retrieve Deleted Items
+  router.get("/deletedItems/", (req, res) => {
+    db.query(`
+      SELECT * FROM items WHERE is_deleted = true`)
+      .then(({ rows: items }) => {
+        res.json(items);
+      });
+  })
+
   // Add Item
   router.post("/newItems/", (req, res) => {
     const itemName = req.body.itemName
