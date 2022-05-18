@@ -24,6 +24,21 @@ module.exports = db => {
       }).catch((error) => {
         console.log('Cost Update Error', error)
       })
+  });
+
+  // Retrieve Single Item to Edit
+  router.get("/items/:id", (req, res) => {
+    console.log('single item id', req.body)
+
+    // db.query(`
+    // SELECT * FROM items 
+    // WHERE id = $1`, [id])
+    //   .then(() => {
+    //     res.status(204).json({})
+    //     console.log("Cost Updated")
+    //   }).catch((error) => {
+    //     console.log('Cost Update Error', error)
+    //   })
   })
 
   // Update Item Cost
