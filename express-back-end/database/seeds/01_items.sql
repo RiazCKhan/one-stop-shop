@@ -5,4 +5,4 @@ INSERT INTO items (title, description, cost) VALUES ('Desk Lamp', 'Are you afrai
 INSERT INTO items (title, description, cost) VALUES ('Rubber Ducky', 'Best Friend', 1);
 INSERT INTO items (title, description, cost) VALUES ('Candy Wrapper', 'Timeless', 3);
 INSERT INTO items (title, description, cost) VALUES ('Lightning Rod', '+4 Agility', 18);
-INSERT INTO items (title, description, cost, is_deleted) VALUES ('Katana', '18 years and older', 77, 'true');
+INSERT INTO items (title, description, cost, is_deleted, comment) VALUES ('Katana', '18 years and older', 77, 'true', 'TMNT');
