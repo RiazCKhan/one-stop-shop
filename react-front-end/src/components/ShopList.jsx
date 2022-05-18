@@ -12,22 +12,23 @@ export default function ShopList() {
 
   useEffect(() => {
     axios.get('/api/items')
-      .then((response) => {
-        setShopData(response.data)
-      }).catch((error) => {
-        console.log('Error', error)
-      })
+      .then((response) => setShopData(response.data))
+      .catch((error) => console.log('Error', error))
   }, [page]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
   };
 
-  const onDelete = (id) => {
-    // axios.put('/api/deleteItem', { id })
-    //   .then(() => setPage(true))
-    //   .then(() => setPage(false))
-    //   .catch((error) => console.log(error))
+  const onDelete = (id, comment) => {
+    const data = {
+      id,
+      comment
+    }
+    axios.put('/api/deleteItem', data)
+      .then(() => setPage(true))
+      .then(() => setPage(false))
+      .catch((error) => console.log(error))
 
     setShowModal(false);
   };
@@ -44,6 +45,8 @@ export default function ShopList() {
         onDelete={onDelete}
         showModal={showModal}
         setShowModal={setShowModal}
+        comment={comment}
+        setComment={setComment}
       />
     )
   })
