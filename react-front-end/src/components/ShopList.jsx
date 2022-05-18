@@ -22,7 +22,7 @@ export default function ShopList() {
   };
 
   const onDelete = (id) => {
-    axios.delete('/api/deleteItem', { data: { id } })
+    axios.put('/api/deleteItem', { id })
       .then(() => setPage(true))
       .then(() => setPage(false))
       .catch((error) => console.log(error))
