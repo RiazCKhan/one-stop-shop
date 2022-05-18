@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
+import Modal from "react-modal"
 import "./ShopList.css"
 
 export default function ShopListItem(props) {
-  const { id, title, description, cost, onDelete, handleSubmit } = props;
+  const { id, title, description, cost,
+    onDelete, showModal, setShowModal,
+    comment, setComment,
+    handleSubmit } = props;
 
   return (
     <article className="item-card">
@@ -12,6 +16,7 @@ export default function ShopListItem(props) {
           {description}
         </div>
       </article>
+
       <article>
         <form onSubmit={handleSubmit} className="edit-card">
           <div className="cost-apperance">
@@ -21,9 +26,25 @@ export default function ShopListItem(props) {
             <Link to={`/edit/${id}`}>
               <button>Edit</button>
             </Link>
-            <button onClick={() => onDelete(id)}>Delete</button>
+            <button onClick={() => setShowModal(true)}>Delete</button>
           </div>
         </form>
+      </article>
+
+      <article>
+        <Modal isOpen={showModal}>
+          <h3>Optional: Add Deletion Comment</h3>
+          <input
+            type="text"
+            value={comment}
+            onChange={(event) => {
+              setComment(event.target.value)
+            }}
+          />
+          <span>Are you sure </span>
+          <button onClick={() => onDelete(id)}>Confirm</button>
+          <button onClick={() => setShowModal(false)}>Close</button>
+        </Modal>
       </article>
     </article>
   )
