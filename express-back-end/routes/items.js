@@ -7,11 +7,11 @@ module.exports = db => {
       .then(({ rows: items }) => {
         res.json(items);
       });
-  })
+  });
 
   // Retrieve Single Item to Edit
   router.get("/item/:id", (req, res) => {
-    const id = req.params.id
+    const id = req.params.id;
 
     db.query(`
       SELECT * FROM items 
@@ -20,7 +20,7 @@ module.exports = db => {
       .then(({ rows: item }) => {
         res.json(item);
       });
-  })
+  });
 
   // Retrieve Deleted Items
   router.get("/deletedItems/", (req, res) => {
@@ -29,33 +29,33 @@ module.exports = db => {
       .then(({ rows: items }) => {
         res.json(items);
       });
-  })
+  });
 
   // Add Item
   router.post("/newItems/", (req, res) => {
-    const itemName = req.body.itemName
-    const itemDescription = req.body.itemDescription
-    const itemCost = req.body.itemCost
+    const itemName = req.body.itemName;
+    const itemDescription = req.body.itemDescription;
+    const itemCost = req.body.itemCost;
 
     db.query(`
     INSERT INTO items (title, description, cost) 
     VALUES ($1::VARCHAR, $2::VARCHAR, $3::FLOAT)
     `, [itemName, itemDescription, itemCost])
       .then(() => {
-        res.status(204).json({})
-        console.log("Item Added")
+        res.status(204).json({});
+        console.log("Item Added");
       }).catch((error) => {
-        console.log('Item Add Error', error)
-      })
+        console.log('Item Add Error', error);
+      });
   });
 
   // Update Item
   router.put("/editItems/", (req, res) => {
-    console.log(req.body)
-    const id = req.body.id
-    const title = req.body.title
-    const description = req.body.description
-    const cost = req.body.cost
+    console.log(req.body);
+    const id = req.body.id;
+    const title = req.body.title;
+    const description = req.body.description;
+    const cost = req.body.cost;
 
     db.query(`
     UPDATE items
@@ -66,18 +66,18 @@ module.exports = db => {
     WHERE id = $4
     `, [title, description, cost, id])
       .then(() => {
-        res.status(204).json({})
-        console.log("Item Updated")
+        res.status(204).json({});
+        console.log("Item Updated");
       }).catch((error) => {
-        console.log('Item Update Error', error)
-      })
-  })
+        console.log('Item Update Error', error);
+      });
+  });
 
   // Delete Item + Add Comment
   router.put("/deleteItem/", (req, res) => {
-    const id = req.body.id
-    const comment = req.body.comment
-    const setDelete = true
+    const id = req.body.id;
+    const comment = req.body.comment;
+    const setDelete = true;
 
     db.query(`
     UPDATE items
@@ -87,18 +87,18 @@ module.exports = db => {
     WHERE id = $3
     `, [setDelete, comment, id])
       .then(() => {
-        res.status(204).json({})
-        console.log("Item Deleted")
+        res.status(204).json({});
+        console.log("Item Deleted");
       }).catch((error) => {
-        console.log('Item Deletion Error', error)
-      })
-  })
+        console.log('Item Deletion Error', error);
+      });
+  });
 
   // Restore Deleted Item
   router.put("/restoreItem/", (req, res) => {
-    const id = req.body.id
-    const comment = null
-    const setDelete = false
+    const id = req.body.id;
+    const comment = null;
+    const setDelete = false;
 
     db.query(`
     UPDATE items
@@ -108,12 +108,12 @@ module.exports = db => {
     WHERE id = $3
     `, [setDelete, comment, id])
       .then(() => {
-        res.status(204).json({})
-        console.log("Item Restored")
+        res.status(204).json({});
+        console.log("Item Restored");
       }).catch((error) => {
-        console.log('Item Restoration Error', error)
-      })
-  })
+        console.log('Item Restoration Error', error);
+      });
+  });
 
   return router;
 };
