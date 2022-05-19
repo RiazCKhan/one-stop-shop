@@ -8,7 +8,7 @@ export default function DeleteListItem(props) {
   return <>
     <form className="delete-form-container">
       <h2 className="page-header">Item Deletion Page</h2>
-      <label>{title}</label>
+      <label><b>{title}</b></label>
 
       <br></br>
       <label>Item Description:
