@@ -1,0 +1,10 @@
+.page-header {
+  display: flex;
+  justify-content: center;
+}
+
+.delete-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
