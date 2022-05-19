@@ -9,7 +9,7 @@ const db = require("./database");
 
 const items = require("./routes/items");
 
-module.exports = function application( ENV ) {
+module.exports = function application() {
   app.use(cors());
   app.use(helmet());
   app.use(bodyparser.json());
