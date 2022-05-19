@@ -31,7 +31,7 @@ export default function ShopListItem(props) {
       </article>
 
       <article>
-        <h3>Optional: Add Deletion Comment</h3>
+        <h3>Provide Deletion Comment</h3>
         <input
           type="text"
           value={comment || ""}
