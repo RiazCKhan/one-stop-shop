@@ -52,7 +52,7 @@ export default function NewItem(props) {
         placeholder={title ? "New item name" : "Item name..."} />
 
       {editItemPage ?
-        <label className="">Item Description:
+        <label>Item Description:
           <br></br>
           <span><small>{description}</small></span>
         </label> :
