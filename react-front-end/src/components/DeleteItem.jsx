@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import DeleteListItem from "./DeleteListItem";
 import axios from "axios";
 
+import "./ShopList.css"
+
 export default function DeleteItem() {
   const [deletedItem, setDeletedItem] = useState([]);
   const { itemId } = useParams();
@@ -45,7 +47,6 @@ export default function DeleteItem() {
 
   return (
     <>
-      Hello
       {singleDeletedItemInfo}
     </>
   )
