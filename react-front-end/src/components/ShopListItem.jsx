@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 import "./ShopList.css"
 
 export default function ShopListItem(props) {
-  const { id, title, description, cost, handleSubmit,
-    onDelete, comment, setComment, bin, deletionComment, onRestore } = props;
+  const { id, title, description, cost, handleSubmit, bin, deletionComment, onRestore } = props;
 
   return (
     <article className="item-card">
