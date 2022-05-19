@@ -3,10 +3,9 @@ import { useParams } from "react-router-dom";
 import DeleteListItem from "./DeleteListItem";
 import axios from "axios";
 
-import "./ShopList.css"
-
 export default function DeleteItem() {
   const [deletedItem, setDeletedItem] = useState([]);
+  const [comment, setComment] = useState("")
   const { itemId } = useParams();
 
   const singleDeletedItemRequest = {
@@ -32,7 +31,6 @@ export default function DeleteItem() {
   };
 
   const singleDeletedItemInfo = deletedItem.map((itemInfo) => {
-    console.log('Returned Item from DB', singleDeletedItemInfo)
     return (
       <DeleteListItem
         key={itemInfo.id}
@@ -40,6 +38,8 @@ export default function DeleteItem() {
         title={itemInfo.title}
         description={itemInfo.description}
         cost={itemInfo.cost}
+        comment={comment}
+        setComment={setComment}
         confirmDelete={confirmDelete}
       />
     )
