@@ -6,13 +6,12 @@ import "./ShopList.css"
 
 export default function ShopList() {
   const [shopData, setShopData] = useState([])
-  const [page, setPage] = useState(false)
 
   useEffect(() => {
     axios.get('/api/items')
       .then((response) => setShopData(response.data))
       .catch((error) => console.log('Error', error))
-  }, [page]);
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
