@@ -18,17 +18,6 @@ export default function ShopList() {
     event.preventDefault();
   };
 
-  const onDelete = (id, comment) => {
-    const data = {
-      id,
-      comment
-    }
-    axios.put('/api/deleteItem', data)
-      .then(() => setPage(true))
-      .then(() => setPage(false))
-      .catch((error) => console.log(error))
-  };
-
   const shopItem = shopData.map((item) => {
     return (
       <ShopListItem
@@ -38,7 +27,6 @@ export default function ShopList() {
         description={item.description}
         cost={item.cost}
         handleSubmit={handleSubmit}
-        onDelete={onDelete}
       />
     )
   })
