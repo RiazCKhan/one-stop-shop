@@ -34,6 +34,7 @@ const binItems = deletedItems.map((item) => {
 
   return (
     <>
+    <h2 className="page-header">List of All Deleted Items</h2>
     {binItems}
     </>
   )

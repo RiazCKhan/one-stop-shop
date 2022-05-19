@@ -6,7 +6,7 @@ export default function ShopListItem(props) {
 
   return (
     <article className="item-card">
-      <h1>{title}</h1>
+      <h2>{title}</h2>
       <article>
         <div className="edit-card">
           {description}

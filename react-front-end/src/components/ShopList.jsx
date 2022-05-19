@@ -32,8 +32,11 @@ export default function ShopList() {
   })
 
   return (
-    <section className="shop-items-container">
-      {shopItem}
-    </section>
+    <>
+      <h2 className="page-header">All Items Page</h2>
+      <section className="shop-items-container">
+        {shopItem}
+      </section>
+    </>
   )
 }
