@@ -3,6 +3,10 @@
   justify-content: center;
 }
 
+.delete-form-container {
+  
+}
+
 .delete-info-container {
   display: flex;
   flex-direction: column;
