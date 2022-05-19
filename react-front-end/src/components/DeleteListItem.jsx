@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import "./NewItem.css";
 
 export default function DeleteListItem(props) {
+  const { id, title, description, cost, comment, setComment, confirmDelete, handleSubmit } = props
 
-  const { id, title, description, cost, comment, setComment, confirmDelete } = props
   return <>
-    <form className="add-form-container">
+    <form onSubmit={handleSubmit} className="add-form-container">
       <h3>Item Deletion Page</h3>
       <label>{title}</label>
 
