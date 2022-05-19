@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import "./DeleteItem.css";
 
 export default function DeleteListItem(props) {
-  const { id, title, description, cost, comment, setComment, confirmDelete, handleSubmit } = props
+  const { id, title, description, cost, comment, setComment, confirmDelete } = props
 
   return <>
-    <form onSubmit={handleSubmit} className="add-form-container">
+    <form className="delete-form-container">
       <h2 className="page-header">Item Deletion Page</h2>
       <label>{title}</label>
 
