@@ -6,7 +6,6 @@ import "./ShopList.css"
 
 export default function ShopList() {
   const [shopData, setShopData] = useState([])
-  const [comment, setComment] = useState("")
   const [page, setPage] = useState(false)
 
   useEffect(() => {
@@ -40,8 +39,6 @@ export default function ShopList() {
         cost={item.cost}
         handleSubmit={handleSubmit}
         onDelete={onDelete}
-        comment={comment}
-        setComment={setComment}
       />
     )
   })
