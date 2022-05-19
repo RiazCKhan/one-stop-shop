@@ -40,7 +40,7 @@ export default function NewItem(props) {
 
   return (
     <form onSubmit={handleSubmit} className="add-form-container">
-      {editItemPage ? <h3>Edit Item</h3> : <h3>Add Item</h3>}
+      {editItemPage ? <h2>Edit Item</h2> : <h2>Add Item</h2>}
       {title ? <label>{title}</label> : <label>Item Name</label>}
       <input
         type="text"
@@ -52,7 +52,7 @@ export default function NewItem(props) {
         placeholder={title ? "New item name" : "Item name..."} />
 
       {editItemPage ?
-        <label className="">Item Description:
+        <label>Item Description:
           <br></br>
           <span><small>{description}</small></span>
         </label> :

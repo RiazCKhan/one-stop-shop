@@ -109,9 +109,9 @@ module.exports = db => {
     `, [setDelete, comment, id])
       .then(() => {
         res.status(204).json({})
-        console.log("Item Deleted")
+        console.log("Item Restored")
       }).catch((error) => {
-        console.log('Item Deletion Error', error)
+        console.log('Item Restoration Error', error)
       })
   })
 

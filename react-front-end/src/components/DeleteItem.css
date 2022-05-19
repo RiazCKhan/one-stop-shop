@@ -1,0 +1,26 @@
+.page-header {
+  display: flex;
+  justify-content: center;
+}
+
+.delete-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.delete-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.delete-form-container label {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.delete-form-container button {
+  margin: 0.5rem;
+}
