@@ -5,12 +5,11 @@ import axios from "axios";
 
 export default function DeleteItem() {
   const [deletedItem, setDeletedItem] = useState([]);
-  const { deletedItemId } = useParams();
-
+  const { itemId } = useParams();
 
   const singleDeletedItemRequest = {
     method: 'GET',
-    url: `/api/item/${deletedItemId}`
+    url: `/api/item/${itemId}`
   };
 
   useEffect(() => {
@@ -19,17 +18,7 @@ export default function DeleteItem() {
       .catch((error) => console.log('error', error))
   }, []);
 
-
-  // const onDelete = (id, comment) => {
-  //   const data = {
-  //     id,
-  //     comment
-  //   }
-  //   axios.put('/api/deleteItem', data)
-  //     .catch((error) => console.log(error))
-  // };
-
-  const onDelete = (id, comment) => {
+  const confirmDelete = (id, comment) => {
     const item = {
       id,
       comment
@@ -49,6 +38,7 @@ export default function DeleteItem() {
         title={itemInfo.title}
         description={itemInfo.description}
         cost={itemInfo.cost}
+        confirmDelete={confirmDelete}
       />
     )
   })
