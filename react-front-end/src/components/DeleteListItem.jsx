@@ -1,4 +1,6 @@
-export default function DeleteListItem() {
+export default function DeleteListItem(props) {
+
+  const { id, title, description, cost, confirmDelete } = props
   return <>
     <form className="add-form-container">
       {/* {editItemPage ? <h3>Edit Item</h3> : <h3>Add Item</h3>}
@@ -27,7 +29,7 @@ export default function DeleteListItem() {
         required="required"
         placeholder={description ? "New description" : "Item description..."} /> */}
 
-      <button onClick={() => console.log('confirm delete')}>Confirm</button>
+      <button onClick={() => confirmDelete(id)}>Confirm</button>
       <button onClick={() => console.log('close dialogue')}>Close</button>
     </form>
   </>
