@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element={<ShopList />} />
         <Route path="/new" element={<NewItem />} />
         <Route path="/edit/:itemId" element={<EditItem />} />
-        <Route path="/delete/:itemId" element={DeleteItem />} />
+        <Route path="/delete/:itemId" element={<DeleteItem />} />
         <Route path="/bin" element={<ItemBin />} />
       </Routes>
 
