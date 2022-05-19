@@ -19,6 +19,16 @@ export default function DeleteItem() {
       .catch((error) => console.log('error', error))
   }, []);
 
+
+    // const onDelete = (id, comment) => {
+  //   const data = {
+  //     id,
+  //     comment
+  //   }
+  //   axios.put('/api/deleteItem', data)
+  //     .catch((error) => console.log(error))
+  // };
+
   const onDelete = (id, title, description, cost) => {
     if (!title || !description || !cost) {
       return null
