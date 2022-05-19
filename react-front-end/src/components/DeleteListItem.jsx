@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+import "./DeleteItem.css";
+
 export default function DeleteListItem(props) {
   const { id, title, description, cost, comment, setComment, confirmDelete, handleSubmit } = props
 
