@@ -1,49 +1,39 @@
+import { Link } from "react-router-dom";
+import "./NewItem.css";
+
 export default function DeleteListItem(props) {
 
   const { id, title, description, cost, confirmDelete } = props
   return <>
     <form className="add-form-container">
-      {/* {editItemPage ? <h3>Edit Item</h3> : <h3>Add Item</h3>}
-      {title ? <label>{title}</label> : <label>Item Name</label>}
-      <input
-        type="text"
-        value={itemName || ""}
-        onChange={(event) => {
-          setItemName(event.target.value)
-        }}
-        required="required"
-        placeholder={title ? "New item name" : "Item name..."} />
+      <h3>Item Deletion Page</h3>
+      <label>{title}</label>
 
-      {editItemPage ?
-        <label className="">Item Description:
-          <br></br>
-          <span><small>{description}</small></span>
-        </label> :
-        <label>Item Description</label>}
-      <input
-        type="textarea"
-        value={itemDescription || ""}
-        onChange={(event) => {
-          setItemDescription(event.target.value)
-        }}
-        required="required"
-        placeholder={description ? "New description" : "Item description..."} /> */}
+      <label>Item Description:
+        <br></br>
+        <span><small>{description}</small></span>
+      </label>
+
+      <label>Item Cost:
+        <br></br>
+        <span><small>$ {cost}</small></span>
+      </label>
+
+      <article>
+        <h3>Provide Deletion Comment</h3>
+        {/* <input
+          type="text"
+          value={comment || ""}
+          onChange={(event) => {
+            setComment(event.target.value)
+          }}
+        /> */}
+        <p>Are you sure </p>
+      </article>
 
       <button onClick={() => confirmDelete(id)}>Confirm</button>
-      <button onClick={() => console.log('close dialogue')}>Close</button>
+      <Link to={"/"}> <button onClick={() => console.log('close dialogue')}>Cancel</button> </Link>
     </form>
   </>
 }
 
-    // <article>
-    //   <h3>Provide Deletion Comment</h3>
-    //   <input
-    //     type="text"
-    //     value={comment || ""}
-    //     onChange={(event) => {
-    //       setComment(event.target.value)
-    //     }}
-    //   />
-    //   <p>Are you sure </p>
-
-    // </article>
