@@ -20,14 +20,18 @@ export default function DeleteItem() {
   }, []);
 
   const confirmDelete = (id, comment) => {
-    const item = {
+    if (!comment) {
+      alert('Comment Required');
+      return null;
+    }
+
+    const data = {
       id,
       comment
     }
-    console.log('Delete FN arguements', item)
-    // axios.put('/api/deleteItem', item)
-    // .then(() => alert('Item Deleted and Comment Stored'))
-    // .catch(() => alert('Something went wrong...'))
+    axios.put('/api/deleteItem', data)
+      .then(() => console.log('Item Deleted and Comment Stored'))
+      .catch(() => alert('Something went wrong...'))
   };
 
   const singleDeletedItemInfo = deletedItem.map((itemInfo) => {
