@@ -20,7 +20,7 @@ export default function DeleteItem() {
   }, []);
 
 
-    // const onDelete = (id, comment) => {
+  // const onDelete = (id, comment) => {
   //   const data = {
   //     id,
   //     comment
@@ -29,33 +29,29 @@ export default function DeleteItem() {
   //     .catch((error) => console.log(error))
   // };
 
-  const onDelete = (id, title, description, cost) => {
-    if (!title || !description || !cost) {
-      return null
-    }
-
+  const onDelete = (id, comment) => {
     const item = {
       id,
-      title,
-      description,
-      cost
+      comment
     }
-    axios.put('/api/editItems', item)
-      .then(() => alert('Item Edit Successful'))
-      .catch(() => alert('Something went wrong...'))
+    console.log('Delete FN arguements', item)
+    // axios.put('/api/deleteItem', item)
+    // .then(() => alert('Item Deleted and Comment Stored'))
+    // .catch(() => alert('Something went wrong...'))
   };
 
-    const singleDeletedItemInfo = deletedItem.map((itemInfo) => {
-      return (
-        <DeleteListItem
-          key={itemInfo.id}
-          id={itemInfo.id}
-          title={itemInfo.title}
-          description={itemInfo.description}
-          cost={itemInfo.cost}
-        />
-      )
-    })
+  const singleDeletedItemInfo = deletedItem.map((itemInfo) => {
+    console.log('Returned Item from DB', singleDeletedItemInfo)
+    return (
+      <DeleteListItem
+        key={itemInfo.id}
+        id={itemInfo.id}
+        title={itemInfo.title}
+        description={itemInfo.description}
+        cost={itemInfo.cost}
+      />
+    )
+  })
 
   return (
     <>
