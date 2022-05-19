@@ -6,7 +6,6 @@ import "./ShopList.css"
 
 export default function ShopList() {
   const [shopData, setShopData] = useState([])
-  const [showModal, setShowModal] = useState(false)
   const [comment, setComment] = useState("")
   const [page, setPage] = useState(false)
 
@@ -29,8 +28,6 @@ export default function ShopList() {
       .then(() => setPage(true))
       .then(() => setPage(false))
       .catch((error) => console.log(error))
-
-    setShowModal(false);
   };
 
   const shopItem = shopData.map((item) => {
@@ -43,8 +40,6 @@ export default function ShopList() {
         cost={item.cost}
         handleSubmit={handleSubmit}
         onDelete={onDelete}
-        showModal={showModal}
-        setShowModal={setShowModal}
         comment={comment}
         setComment={setComment}
       />
