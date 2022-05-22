@@ -1,0 +1,2 @@
+language = "nodejs"
+run = "(cd express-back-end ; npm install && npm start &) ; (cd react-front-end ; npm install && npm start)"
