@@ -1,9 +1,8 @@
 # One Stop Shop 
+### Shopify Internship Application
 
-## Shopify Internship Application
 
 Welcome to the One Stop Shop Admin Panel. 
-
 The Admin can Create, Edit, and Delete Shop Items. Deletion comments can be provided and Deleted Items can be restored to the Shop.
 
 #
