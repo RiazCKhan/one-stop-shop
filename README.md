@@ -49,7 +49,9 @@ FrontEnd and BackEnd have separate dependencies that needs to be installed. To i
   ```
   npm install
   ```
-  
+  Then run npm start
+  ```
+  npm start
 # 
 
 * Go to express-back-end folder
@@ -60,4 +62,6 @@ FrontEnd and BackEnd have separate dependencies that needs to be installed. To i
   ```
   npm install
   ```
-
+  Then run npm start
+  ```
+  npm start
