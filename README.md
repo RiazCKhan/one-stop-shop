@@ -1,4 +1,4 @@
-# One Stop Shop 
+# One Stop Shop!
 ### Shopify Internship Application
 
 
